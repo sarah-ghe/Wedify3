@@ -1,13 +1,16 @@
 import { ref } from 'vue';
 import { supabase } from '@/lib/supabase';
+import type { LoginParams } from '@/lib/types';
 
 export function useLogin() {
     const loading = ref(false);
     const authError = ref<string | null>(null);
 
-    async function login(email: string, password: string) {
-        loading.value = true;
+    async function login(payload: LoginParams) {
+        const email = payload.email
+        const password = payload.password
 
+        loading.value = true;
         const { data, error } = await supabase.auth.signInWithPassword({
             email,
             password

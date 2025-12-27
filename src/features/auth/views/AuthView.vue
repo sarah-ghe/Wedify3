@@ -8,10 +8,11 @@
 <script lang="ts" setup>
 import LoginForm from '../components/LoginForm.vue';
 import { useLogin } from '../composables/useLogin';
+import { LoginParams } from "@/lib/types";
 
-function handleLogin(payload: { email: string; password: string }) {
+function handleLogin(payload: LoginParams) {
   const { login } = useLogin();
-  login(payload.email, payload.password);
+  login(payload);
 }
 </script>
 

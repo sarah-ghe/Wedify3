@@ -26,11 +26,12 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
+import {LoginParams} from "@/lib/types";
 
 const email = ref('');
 const password = ref('');
 const emit = defineEmits<{
-  (e: 'login', payload: { email: string; password: string }): void;
+  (e: 'login', payload: LoginParams): void;
 }>();
 
 function onSubmit() {

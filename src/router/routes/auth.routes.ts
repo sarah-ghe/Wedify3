@@ -1,4 +1,5 @@
 import AuthView from '@/features/auth/views/AuthView.vue';
+import SignUpView from "@/features/auth/views/SignUpView.vue";
 
 export default [
     {
@@ -6,4 +7,9 @@ export default [
         name: 'Login',
         component: AuthView,
     },
+    {
+        path: '/signup',
+        name: 'SignUp',
+        component: SignUpView,
+    }
 ];
