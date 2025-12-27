@@ -8,7 +8,9 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "vue": "^3.0.0"
+    "@supabase/supabase-js": "^2.89.0",
+    "vue": "^3.0.0",
+    "vue-router": "^4.6.4"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.3",

@@ -11,7 +11,7 @@ my-vue-vite-app
 ├── vite.config.js      # Vite configuration file
 ├── .gitignore          # Git ignore file
 ├── src                 # Source files
-│   ├── main.js         # Entry point of the application
+│   ├── main.ts         # Entry point of the application
 │   ├── App.vue         # Root component
 │   ├── components       # Vue components
 │   │   └── HelloWorld.vue # Example component
@@ -20,7 +20,10 @@ my-vue-vite-app
 │   ├── assets          # Static assets
 │   │   └── styles.css   # Global styles
 │   └── router          # Vue Router setup
-│       └── index.js    # Router configuration
+│       └── 
+
+
+index.ts    # Router configuration
 ├── public              # Public files
 │   └── robots.txt      # Robots.txt for search engines
 └── README.md           # Project documentation
@@ -56,7 +59,7 @@ my-vue-vite-app
 ## Usage
 
 - Modify the components in the `src/components` directory to customize your application.
-- Update the routes in `src/router/index.js` to add new views or change existing ones.
+- Update the routes in `src/router/index.ts` to add new views or change existing ones.
 - Use `src/assets/styles.css` for global styles.
 
 ## License
