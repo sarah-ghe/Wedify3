@@ -6,7 +6,6 @@
     <select v-model="form.role" required>
       <option value="Couple">Couple</option>
       <option value="Vendor">Vendor</option>
-      <option value="Admin">Admin</option>
     </select>
     <button type="submit">Sign Up</button>
   </form>
