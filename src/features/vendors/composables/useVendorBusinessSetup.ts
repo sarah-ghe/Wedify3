@@ -25,7 +25,7 @@ const NICHES = [
     'organizer',
     'savory',
     'transport',
-    'venue'
+    'venue',
 ];
 
 export function useVendorBusinessSetup() {

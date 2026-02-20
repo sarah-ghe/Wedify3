@@ -16,7 +16,7 @@ import { ref } from 'vue';
 import SignUpForm from '../components/SignUpForm.vue';
 import Toast from '@/features/shared/components/Toast.vue';
 import { SignUpParams, userRole } from '@/lib/types';
-import { useSignup } from '../composables/useSignup';
+import { useSignup } from '../services/useSignup';
 
 const initialParams = ref<SignUpParams>({
   email: '',

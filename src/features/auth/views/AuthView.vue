@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import LoginForm from '../components/LoginForm.vue';
-import { useLogin } from '../composables/useLogin';
+import { useLogin } from '../services/useLogin';
 import { LoginParams } from "@/lib/types";
 import Toast from '@/features/shared/components/Toast.vue';
 
