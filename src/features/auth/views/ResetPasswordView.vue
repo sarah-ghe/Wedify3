@@ -1,6 +1,11 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <input v-model="password" type="password" placeholder="New password" required />
+    <input
+      v-model="password"
+      type="password"
+      placeholder="New password"
+      required
+    />
     <button type="submit">Update Password</button>
     <div v-if="message">{{ message }}</div>
   </form>
@@ -16,7 +21,9 @@ const message = ref("");
 const router = useRouter();
 
 async function onSubmit() {
-  const { error } = await supabase.auth.updateUser({ password: password.value });
+  const { error } = await supabase.auth.updateUser({
+    password: password.value,
+  });
   if (error) {
     message.value = error.message;
   } else {

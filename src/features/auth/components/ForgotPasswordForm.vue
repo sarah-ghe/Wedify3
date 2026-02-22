@@ -1,6 +1,11 @@
 <template>
   <form @submit.prevent="onSubmit">
-    <input v-model="email" type="email" placeholder="Enter your email" required />
+    <input
+      v-model="email"
+      type="email"
+      placeholder="Enter your email"
+      required
+    />
     <button type="submit">Send Reset Email</button>
     <div v-if="message">{{ message }}</div>
   </form>
@@ -18,7 +23,9 @@ async function onSubmit() {
   const { error } = await supabase.auth.resetPasswordForEmail(email.value, {
     redirectTo: window.location.origin + "/reset-password",
   });
-  message.value = error ? error.message : "Check your email for the reset link.";
+  message.value = error
+    ? error.message
+    : "Check your email for the reset link.";
   emit("reset", message.value);
 }
 </script>

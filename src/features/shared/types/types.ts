@@ -75,3 +75,12 @@ export type SetupVendorBusinessParams = {
   restDays: VendorsRestDay[];
   portfolioTags: VendorsPortfolioTag[];
 };
+
+export interface VendorPortfolioFile {
+  id: string;
+  vendor_id: string;
+  file_url: string;
+  file_type: "image" | "video";
+  description?: string;
+  created_at: string;
+}

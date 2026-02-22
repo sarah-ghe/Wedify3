@@ -7,10 +7,10 @@
     </button>
     <ForgotPasswordForm v-if="showForgot" @reset="onReset" />
     <Toast
-        :message="toastMsg"
-        :type="toastType"
-        :visible="showToast"
-        @update:visible="showToast = $event"
+      :message="toastMsg"
+      :type="toastType"
+      :visible="showToast"
+      @update:visible="showToast = $event"
     />
   </div>
 </template>
