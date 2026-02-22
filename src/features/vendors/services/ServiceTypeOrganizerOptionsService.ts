@@ -12,14 +12,14 @@ export interface ServiceTypeOrganizerOption {
 export class ServiceTypeOrganizerOptionsService {
   static async getAll() {
     const { data, error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .select("*");
     return { data, error };
   }
 
   static async getById(id: number) {
     const { data, error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .select("*")
       .eq("id", id)
       .single();
@@ -28,7 +28,7 @@ export class ServiceTypeOrganizerOptionsService {
 
   static async getByVendorId(vendorId: string) {
     const { data, error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .select("*")
       .eq("vendor_id", vendorId);
     return { data, error };
@@ -38,7 +38,7 @@ export class ServiceTypeOrganizerOptionsService {
     option: Omit<ServiceTypeOrganizerOption, "id" | "created_at">,
   ) {
     const { data, error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .insert([option])
       .select()
       .single();
@@ -49,7 +49,7 @@ export class ServiceTypeOrganizerOptionsService {
     options: Array<Omit<ServiceTypeOrganizerOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .insert(options);
     return { data, error };
   }
@@ -59,7 +59,7 @@ export class ServiceTypeOrganizerOptionsService {
     updates: Partial<Omit<ServiceTypeOrganizerOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .update(updates)
       .eq("id", id)
       .select()
@@ -69,7 +69,7 @@ export class ServiceTypeOrganizerOptionsService {
 
   static async delete(id: number) {
     const { error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .delete()
       .eq("id", id);
     return { error };
@@ -77,7 +77,7 @@ export class ServiceTypeOrganizerOptionsService {
 
   static async deleteBatch(ids: number[]) {
     const { error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .delete()
       .in("id", ids);
     return { error };
@@ -85,7 +85,7 @@ export class ServiceTypeOrganizerOptionsService {
 
   static async deleteByVendorId(vendorId: string) {
     const { error } = await supabase
-      .from("service_type_organizer_options")
+      .from("data_organizer_options")
       .delete()
       .eq("vendor_id", vendorId);
     return { error };

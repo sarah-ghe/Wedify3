@@ -16,14 +16,14 @@ export interface ServiceTypeSavoryOption {
 export class ServiceTypeSavoryOptionsService {
   static async getAll() {
     const { data, error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .select("*");
     return { data, error };
   }
 
   static async getById(id: number) {
     const { data, error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .select("*")
       .eq("id", id)
       .single();
@@ -32,7 +32,7 @@ export class ServiceTypeSavoryOptionsService {
 
   static async getByVendorId(vendorId: string) {
     const { data, error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .select("*")
       .eq("vendor_id", vendorId);
     return { data, error };
@@ -42,7 +42,7 @@ export class ServiceTypeSavoryOptionsService {
     option: Omit<ServiceTypeSavoryOption, "id" | "created_at">,
   ) {
     const { data, error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .insert([option])
       .select()
       .single();
@@ -53,7 +53,7 @@ export class ServiceTypeSavoryOptionsService {
     options: Array<Omit<ServiceTypeSavoryOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .insert(options);
     return { data, error };
   }
@@ -63,7 +63,7 @@ export class ServiceTypeSavoryOptionsService {
     updates: Partial<Omit<ServiceTypeSavoryOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .update(updates)
       .eq("id", id)
       .select()
@@ -73,7 +73,7 @@ export class ServiceTypeSavoryOptionsService {
 
   static async delete(id: number) {
     const { error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .delete()
       .eq("id", id);
     return { error };
@@ -81,7 +81,7 @@ export class ServiceTypeSavoryOptionsService {
 
   static async deleteBatch(ids: number[]) {
     const { error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .delete()
       .in("id", ids);
     return { error };
@@ -89,7 +89,7 @@ export class ServiceTypeSavoryOptionsService {
 
   static async deleteByVendorId(vendorId: string) {
     const { error } = await supabase
-      .from("service_type_savory_options")
+      .from("data_savory_options")
       .delete()
       .eq("vendor_id", vendorId);
     return { error };

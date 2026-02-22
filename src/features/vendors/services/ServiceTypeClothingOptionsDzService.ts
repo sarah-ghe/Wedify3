@@ -28,14 +28,14 @@ export interface ServiceTypeClothingOptionDz {
 export class ServiceTypeClothingOptionsDzService {
   static async getAll() {
     const { data, error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .select("*");
     return { data, error };
   }
 
   static async getById(id: number) {
     const { data, error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .select("*")
       .eq("id", id)
       .single();
@@ -44,7 +44,7 @@ export class ServiceTypeClothingOptionsDzService {
 
   static async getByVendorId(vendorId: string) {
     const { data, error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .select("*")
       .eq("vendor_id", vendorId);
     return { data, error };
@@ -54,7 +54,7 @@ export class ServiceTypeClothingOptionsDzService {
     option: Omit<ServiceTypeClothingOptionDz, "id" | "created_at">,
   ) {
     const { data, error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .insert([option])
       .select()
       .single();
@@ -65,7 +65,7 @@ export class ServiceTypeClothingOptionsDzService {
     options: Array<Omit<ServiceTypeClothingOptionDz, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .insert(options);
     return { data, error };
   }
@@ -75,7 +75,7 @@ export class ServiceTypeClothingOptionsDzService {
     updates: Partial<Omit<ServiceTypeClothingOptionDz, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .update(updates)
       .eq("id", id)
       .select()
@@ -85,7 +85,7 @@ export class ServiceTypeClothingOptionsDzService {
 
   static async delete(id: number) {
     const { error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .delete()
       .eq("id", id);
     return { error };
@@ -93,7 +93,7 @@ export class ServiceTypeClothingOptionsDzService {
 
   static async deleteBatch(ids: number[]) {
     const { error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .delete()
       .in("id", ids);
     return { error };
@@ -101,7 +101,7 @@ export class ServiceTypeClothingOptionsDzService {
 
   static async deleteByVendorId(vendorId: string) {
     const { error } = await supabase
-      .from("service_type_clothing_options_dz")
+      .from("data_clothing_options")
       .delete()
       .eq("vendor_id", vendorId);
     return { error };

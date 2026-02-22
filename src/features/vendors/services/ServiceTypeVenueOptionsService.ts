@@ -14,14 +14,14 @@ export interface ServiceTypeVenueOption {
 export class ServiceTypeVenueOptionsService {
   static async getAll() {
     const { data, error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .select("*");
     return { data, error };
   }
 
   static async getById(id: number) {
     const { data, error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .select("*")
       .eq("id", id)
       .single();
@@ -30,7 +30,7 @@ export class ServiceTypeVenueOptionsService {
 
   static async getByVendorId(vendorId: string) {
     const { data, error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .select("*")
       .eq("vendor_id", vendorId);
     return { data, error };
@@ -40,7 +40,7 @@ export class ServiceTypeVenueOptionsService {
     option: Omit<ServiceTypeVenueOption, "id" | "created_at">,
   ) {
     const { data, error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .insert([option])
       .select()
       .single();
@@ -51,7 +51,7 @@ export class ServiceTypeVenueOptionsService {
     options: Array<Omit<ServiceTypeVenueOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .insert(options);
     return { data, error };
   }
@@ -61,7 +61,7 @@ export class ServiceTypeVenueOptionsService {
     updates: Partial<Omit<ServiceTypeVenueOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .update(updates)
       .eq("id", id)
       .select()
@@ -71,7 +71,7 @@ export class ServiceTypeVenueOptionsService {
 
   static async delete(id: number) {
     const { error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .delete()
       .eq("id", id);
     return { error };
@@ -79,7 +79,7 @@ export class ServiceTypeVenueOptionsService {
 
   static async deleteBatch(ids: number[]) {
     const { error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .delete()
       .in("id", ids);
     return { error };
@@ -87,7 +87,7 @@ export class ServiceTypeVenueOptionsService {
 
   static async deleteByVendorId(vendorId: string) {
     const { error } = await supabase
-      .from("service_type_venue_options")
+      .from("data_venue_options")
       .delete()
       .eq("vendor_id", vendorId);
     return { error };

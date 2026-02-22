@@ -16,14 +16,14 @@ export interface ServiceTypeMusicOptionDz {
 export class ServiceTypeMusicOptionsDzService {
   static async getAll() {
     const { data, error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .select("*");
     return { data, error };
   }
 
   static async getById(id: number) {
     const { data, error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .select("*")
       .eq("id", id)
       .single();
@@ -32,7 +32,7 @@ export class ServiceTypeMusicOptionsDzService {
 
   static async getByVendorId(vendorId: string) {
     const { data, error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .select("*")
       .eq("vendor_id", vendorId);
     return { data, error };
@@ -42,7 +42,7 @@ export class ServiceTypeMusicOptionsDzService {
     option: Omit<ServiceTypeMusicOptionDz, "id" | "created_at">,
   ) {
     const { data, error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .insert([option])
       .select()
       .single();
@@ -53,7 +53,7 @@ export class ServiceTypeMusicOptionsDzService {
     options: Array<Omit<ServiceTypeMusicOptionDz, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .insert(options);
     return { data, error };
   }
@@ -63,7 +63,7 @@ export class ServiceTypeMusicOptionsDzService {
     updates: Partial<Omit<ServiceTypeMusicOptionDz, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .update(updates)
       .eq("id", id)
       .select()
@@ -73,7 +73,7 @@ export class ServiceTypeMusicOptionsDzService {
 
   static async delete(id: number) {
     const { error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .delete()
       .eq("id", id);
     return { error };
@@ -81,7 +81,7 @@ export class ServiceTypeMusicOptionsDzService {
 
   static async deleteBatch(ids: number[]) {
     const { error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .delete()
       .in("id", ids);
     return { error };
@@ -89,7 +89,7 @@ export class ServiceTypeMusicOptionsDzService {
 
   static async deleteByVendorId(vendorId: string) {
     const { error } = await supabase
-      .from("service_type_music_options_dz")
+      .from("data_music_options")
       .delete()
       .eq("vendor_id", vendorId);
     return { error };

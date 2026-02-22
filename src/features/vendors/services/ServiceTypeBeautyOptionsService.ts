@@ -14,14 +14,14 @@ export interface ServiceTypeBeautyOption {
 export class ServiceTypeBeautyOptionsService {
   static async getAll() {
     const { data, error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .select("*");
     return { data, error };
   }
 
   static async getById(id: number) {
     const { data, error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .select("*")
       .eq("id", id)
       .single();
@@ -30,7 +30,7 @@ export class ServiceTypeBeautyOptionsService {
 
   static async getByVendorId(vendorId: string) {
     const { data, error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .select("*")
       .eq("vendor_id", vendorId);
     return { data, error };
@@ -40,7 +40,7 @@ export class ServiceTypeBeautyOptionsService {
     option: Omit<ServiceTypeBeautyOption, "id" | "created_at">,
   ) {
     const { data, error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .insert([option])
       .select()
       .single();
@@ -51,7 +51,7 @@ export class ServiceTypeBeautyOptionsService {
     options: Array<Omit<ServiceTypeBeautyOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .insert(options);
     return { data, error };
   }
@@ -61,7 +61,7 @@ export class ServiceTypeBeautyOptionsService {
     updates: Partial<Omit<ServiceTypeBeautyOption, "id" | "created_at">>,
   ) {
     const { data, error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .update(updates)
       .eq("id", id)
       .select()
@@ -71,7 +71,7 @@ export class ServiceTypeBeautyOptionsService {
 
   static async delete(id: number) {
     const { error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .delete()
       .eq("id", id);
     return { error };
@@ -79,7 +79,7 @@ export class ServiceTypeBeautyOptionsService {
 
   static async deleteBatch(ids: number[]) {
     const { error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .delete()
       .in("id", ids);
     return { error };
@@ -87,7 +87,7 @@ export class ServiceTypeBeautyOptionsService {
 
   static async deleteByVendorId(vendorId: string) {
     const { error } = await supabase
-      .from("service_type_beauty_options")
+      .from("data_beauty_options")
       .delete()
       .eq("vendor_id", vendorId);
     return { error };
