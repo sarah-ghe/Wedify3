@@ -3,21 +3,21 @@
     <div>
       <label for="email">Email:</label>
       <input
-          id="email"
-          v-model="email"
-          type="email"
-          required
-          autocomplete="username"
+        id="email"
+        v-model="email"
+        type="email"
+        required
+        autocomplete="username"
       />
     </div>
     <div>
       <label for="password">Password:</label>
       <input
-          id="password"
-          v-model="password"
-          type="password"
-          required
-          autocomplete="current-password"
+        id="password"
+        v-model="password"
+        type="password"
+        required
+        autocomplete="current-password"
       />
     </div>
     <button type="submit">Login</button>
@@ -25,18 +25,18 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import {LoginParams} from "@/lib/types";
+import { ref } from "vue";
+import { LoginParams } from "@/features/shared/types/types";
 
-const email = ref('');
-const password = ref('');
+const email = ref("");
+const password = ref("");
 const emit = defineEmits<{
-  (e: 'login', payload: LoginParams): void;
+  (e: "login", payload: LoginParams): void;
 }>();
 
 function onSubmit() {
   if (email.value && password.value) {
-    emit('login', { email: email.value, password: password.value });
+    emit("login", { email: email.value, password: password.value });
   }
 }
 </script>

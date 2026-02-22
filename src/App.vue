@@ -4,10 +4,10 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'App'
-}
+<script lang="ts" setup>
+import { useSessionRestore } from "@/features/auth/services/useSessionRestore";
+
+useSessionRestore();
 </script>
 
 <style>
