@@ -24,6 +24,14 @@ export class VendorPromotionService {
     return { data, error };
   }
 
+  static async getBySetOfVendorIds(ids: string[]) {
+    const { data, error } = await supabase
+      .from("vendor_promotions")
+      .select("*")
+      .in("vendor_id", ids);
+    return { data, error };
+  }
+
   static async getById(id: number) {
     const { data, error } = await supabase
       .from("vendor_promotions")

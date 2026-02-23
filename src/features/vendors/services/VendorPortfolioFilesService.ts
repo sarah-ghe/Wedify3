@@ -2,7 +2,6 @@ import { VendorPortfolioFile } from "@/features/shared/types/types";
 import { supabase } from "@/lib/supabase";
 
 export class VendorPortfolioFilesService {
-
   static async uploadFile(file: File, vendorId: string) {
     const filePath = `${vendorId}/${Date.now()}_${file.name}`;
     const { error } = await supabase.storage

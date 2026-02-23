@@ -19,6 +19,14 @@ export class VendorPackageService {
     return { data, error };
   }
 
+  static async getBySetOfVendorIds(ids: string[]) {
+    const { data, error } = await supabase
+      .from("vendor_packages")
+      .select("*")
+      .in("vendor_id", ids);
+    return { data, error };
+  }
+
   static async getById(id: string) {
     const { data, error } = await supabase
       .from("vendor_packages")

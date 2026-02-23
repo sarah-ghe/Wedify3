@@ -84,3 +84,12 @@ export interface VendorPortfolioFile {
   description?: string;
   created_at: string;
 }
+
+export interface VendorReview {
+  id: string;
+  user_id: string;
+  vendor_id: string;
+  rating: number;
+  review: string;
+  created_at: string;
+}

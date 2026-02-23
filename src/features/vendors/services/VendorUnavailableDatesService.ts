@@ -15,6 +15,14 @@ export class VendorUnavailableDatesService {
     return { data, error };
   }
 
+  static async getBySetOfIds(vendorIds: string[]) {
+    const { data, error } = await supabase
+      .from("vendor_unavailable_dates")
+      .select("*")
+      .in("vendor_id", vendorIds);
+    return { data, error };
+  }
+
   static async getById(id: string) {
     const { data, error } = await supabase
       .from("vendor_unavailable_dates")

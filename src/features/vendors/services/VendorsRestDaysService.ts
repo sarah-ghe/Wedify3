@@ -15,6 +15,14 @@ export class VendorsRestDaysService {
     return { data, error };
   }
 
+  static async getBySetOfIds(ids: string[]) {
+    const { data, error } = await supabase
+      .from("vendors_rest_days")
+      .select("*")
+      .in("id", ids);
+    return { data, error };
+  }
+
   static async getById(id: string) {
     const { data, error } = await supabase
       .from("vendors_rest_days")

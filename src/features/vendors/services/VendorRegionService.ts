@@ -13,6 +13,14 @@ export class VendorRegionService {
     return { data, error };
   }
 
+  static async getBySetOfIds(ids: string[]) {
+    const { data, error } = await supabase
+      .from("vendor_regions")
+      .select("*")
+      .in("id", ids);
+    return { data, error };
+  }
+
   static async getById(id: string) {
     const { data, error } = await supabase
       .from("vendor_regions")
