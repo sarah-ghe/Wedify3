@@ -93,3 +93,33 @@ export interface VendorReview {
   review: string;
   created_at: string;
 }
+
+export interface CouplePreferences {
+  id: string;
+  user_id: string;
+  service_type_id: string;
+  importance_rank: number;
+}
+
+export interface CoupleTasks {
+  id: string;
+  wedding_id: string;
+  task: string;
+  due_date: string;
+  is_completed: boolean;
+}
+
+export interface CoupleWedding {
+  id: string;
+  user_id: string;
+  wedding_date: string;
+  budget: number;
+  region: string;
+  guest_count: number;
+}
+
+export interface CouplesFavoriteVendors {
+  id: string;
+  user_id: string;
+  vendor_id: string;
+}
