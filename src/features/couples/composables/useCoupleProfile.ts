@@ -1,5 +1,5 @@
 import { ref } from "vue";
-import { WeddingProfile } from "@/features/couples/types/CoupleTypes";
+import { WeddingProfile } from "@/features/couples/types";
 import { WeddingProfileService } from "@/features/couples/services/WeddingProfileService";
 
 export function useCoupleProfile() {

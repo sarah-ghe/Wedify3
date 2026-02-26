@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import { supabase } from "@/lib/supabase";
-import { Couple, WeddingProfile } from "@/features/couples/types/CoupleTypes";
+import { Couple, WeddingProfile } from "@/features/couples/types";
 
 export const useCoupleStore = defineStore("couple", () => {
   const couple = ref<Couple | null>(null);

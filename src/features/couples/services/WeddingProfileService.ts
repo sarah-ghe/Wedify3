@@ -1,5 +1,5 @@
 import { supabase } from "@/lib/supabase";
-import { WeddingProfile } from "@/features/couples/types/CoupleTypes";
+import { WeddingProfile } from "@/features/couples/types";
 
 export class WeddingProfileService {
   static async getByUserId(userId: string) {
