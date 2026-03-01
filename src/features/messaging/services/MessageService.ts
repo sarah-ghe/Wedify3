@@ -246,13 +246,13 @@ async function uploadAttachments(
         const path = `messaging/${conversationId}/${messageId}/${Date.now()}.${ext}`
 
         const { error: uploadError } = await supabase.storage
-            .from('wedify-uploads')
+            .from(messages_bucket)
             .upload(path, file)
 
         if (uploadError) throw new Error(`uploadAttachment: ${uploadError.message}`)
 
         const { data: urlData } = supabase.storage
-            .from('wedify-uploads')
+            .from(messages_bucket)
             .getPublicUrl(path)
 
         const { data, error } = await supabase

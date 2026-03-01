@@ -123,3 +123,4 @@ export interface CouplesFavoriteVendors {
   user_id: string;
   vendor_id: string;
 }
+
