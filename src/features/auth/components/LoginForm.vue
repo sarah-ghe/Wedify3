@@ -1,37 +1,70 @@
 <template>
-  <form @submit.prevent="onSubmit">
-    <div>
-      <label for="email">Email:</label>
-      <input
-        id="email"
-        v-model="email"
+  <form @submit.prevent="onSubmit" class="login-form">
+    <!-- Form Header -->
+    <div class="form-header">
+      <h2>Welcome back</h2>
+      <p class="form-header-subtitle">Continue planning your beautiful day</p>
+    </div>
+
+    <!-- Email Input -->
+    <FormField
+        :model-value="email"
+        @update:model-value="email = $event"
+        label="Email"
         type="email"
-        required
-        autocomplete="username"
-      />
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input
-        id="password"
-        v-model="password"
+        placeholder="your@email.com"
+        icon="mail"
+    />
+
+    <!-- Password Input -->
+    <FormField
+        :model-value="password"
+        @update:model-value="password = $event"
+        label="Password"
         type="password"
-        required
-        autocomplete="current-password"
-      />
+        placeholder="••••••••"
+        icon="lock"
+        :show-toggle="true"
+    />
+
+    <!-- Forgot Password Link -->
+    <div class="form-forgot-link">
+      <button type="button" @click="$emit('forgot')">
+        Forgot password?
+      </button>
     </div>
-    <button type="submit">Login</button>
+
+    <!-- Submit Button -->
+    <SubmitButton>Sign In</SubmitButton>
+
+    <!-- Divider -->
+    <div class="form-divider">
+      <div class="form-divider-line"></div>
+      <span class="form-divider-text">or</span>
+      <div class="form-divider-line"></div>
+    </div>
+
+    <!-- Switch to Signup -->
+    <SwitchButton text="Don't have an account?" @click="$emit('switch')">
+      Create one
+    </SwitchButton>
   </form>
 </template>
 
 <script lang="ts" setup>
 import { ref } from "vue";
-import { LoginParams } from "@/features/shared/types/types";
+import FormField from "../../shared/components/FormField.vue";
+import SubmitButton from "../../shared/components/SubmitButton.vue";
+import SwitchButton from "../../shared/components/SwitchButton.vue";
+import type { LoginParams } from "@/features/shared/types/types";
 
 const email = ref("");
 const password = ref("");
+
 const emit = defineEmits<{
   (e: "login", payload: LoginParams): void;
+  (e: "switch"): void;
+  (e: "forgot"): void;
 }>();
 
 function onSubmit() {
@@ -40,12 +73,3 @@ function onSubmit() {
   }
 }
 </script>
-
-<style scoped>
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  max-width: 300px;
-}
-</style>

@@ -6,7 +6,7 @@ import { supabase } from "@/lib/supabase";
 const routes = [
   {
     path: "/",
-    redirect: "/login",
+    redirect: "/auth",
   },
   ...authRoutes,
   ...dashboardRoutes,
@@ -24,7 +24,7 @@ router.beforeEach(async (to, from, next) => {
   } = await supabase.auth.getSession();
   const user = session?.user;
   if (requiresAuth && !user) {
-    return next({ path: "/login" });
+    return next({ path: "/auth" });
   }
   next();
 });

@@ -53,7 +53,7 @@ export type SignUpParams = {
 
 export enum userRole {
   COUPLE = "couple",
-  Vendor = "vendor",
+  VENDOR = "vendor",
 }
 
 export type NicheInfo =

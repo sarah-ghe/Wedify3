@@ -20,7 +20,7 @@ onMounted(async () => {
   console.log("Route param userId:", route.params.userId);
 
   if (!session || session.user.id !== route.params.userId) {
-    await router.replace("/login");
+    await router.replace("/auth");
     return;
   }
 
@@ -33,7 +33,7 @@ onMounted(async () => {
 
   if (error || !data?.role) {
     console.log("Role not found or error:", error);
-    await router.replace("/login");
+    await router.replace("/auth");
     return;
   }
 

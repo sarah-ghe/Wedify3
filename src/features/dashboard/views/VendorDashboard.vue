@@ -12,7 +12,7 @@ const router = useRouter();
 defineProps<{ userId: string }>();
 async function handleLogout() {
   await supabase.auth.signOut();
-  await router.replace("/login");
+  await router.replace("/auth");
 }
 </script>
 

@@ -1,0 +1,231 @@
+/* Header */
+.app-header {
+  background-color: var(--color-bg-light);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  font-family: var(--font-serif);
+  margin: 0;
+}
+
+.header-nav {
+  display: flex;
+  gap: var(--spacing-xl);
+}
+
+/* Auth Container */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--color-bg-light);
+}
+
+/* ────────────────────────────────────────────────────────────── */
+
+
+/* Form Panel (Right) */
+.form-panel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg) var(--spacing-md);
+  background-color: var(--color-bg-light);
+}
+
+@media (min-width: 1024px) {
+  .form-panel {
+    width: 50%;
+  }
+}
+
+/* Mobile Logo */
+.mobile-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+@media (min-width: 1024px) {
+  .mobile-logo {
+    display: none;
+  }
+}
+
+.logo-symbol {
+  font-size: 1.875rem;
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.mobile-logo h1 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: var(--color-text-dark);
+  font-family: var(--font-serif);
+  margin: 0;
+}
+
+.logo-divider {
+  width: 2.5rem;
+  height: 1px;
+  background-color: var(--color-accent);
+  margin-top: var(--spacing-sm);
+}
+
+/* Form Container */
+.form-container {
+  width: 100%;
+  max-width: 28rem;
+}
+
+/* Tab Switcher */
+.tab-switcher {
+  display: flex;
+  margin-bottom: var(--spacing-lg);
+  border-bottom: 1px solid var(--color-border);
+  gap: 0;
+}
+
+.tab-button {
+  flex: 1;
+  padding-bottom: var(--spacing-md);
+  font-size: 0.875rem;
+  font-weight: 500;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  color: var(--color-text-muted);
+  font-family: var(--font-serif);
+}
+
+.tab-button:hover {
+  color: var(--color-text-light);
+}
+
+.tab-button.active {
+  color: var(--color-text-dark);
+}
+
+.tab-button.active::after {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--color-accent);
+}
+
+/* Reset Password View */
+.reset-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--color-bg-light);
+  padding: var(--spacing-lg);
+}
+
+.reset-form-wrapper {
+  width: 100%;
+  max-width: 28rem;
+}
+
+.form-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.form-header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--color-text-dark);
+  font-family: var(--font-serif);
+  margin: 0;
+}
+
+/* Modal Overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--spacing-lg);
+}
+
+.modal-content {
+  background-color: var(--color-bg-light);
+  border-radius: var(--radius-sm);
+  padding: var(--spacing-xl);
+  max-width: 28rem;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  padding: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color var(--transition-normal);
+}
+
+.modal-close:hover {
+  color: var(--color-text-dark);
+}

@@ -1,0 +1,13 @@
+/* Not used for now, from variables is the one being used for now */
+:root {
+    --primary: #b8860b;
+    --accent: #fbbf24;
+    --text-dark: #3f2817;
+    --text-light: #a89968;
+    --text-muted: #d4cfc5;
+    --bg-light: #fffdf9;
+    --bg-overlay: #f9e8e0;
+    --border-color: #e7e5e4;
+    --serif: 'Georgia', 'Times New Roman', serif;
+    --sans: system-ui, -apple-system, sans-serif;
+}
